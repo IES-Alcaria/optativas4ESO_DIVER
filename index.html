@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link href="assets/css/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <title>Formulario de Preferencias de Asignaturas</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+        .erroro {
+            color: red;
+            display: none;
+        }
+        .mensaje {
+            color: blue;
+            display: block;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="assets/js/material.min.js"></script>
+
+    <script>
+        function validateForm() {
+	    let e1=calcular_distintoso();
+	    let e2=calcular_distintos();
+	    return (e1 && e2);
+	}
+
+	function calcular_distintoso(){
+            let opto = [document.getElementById("opt1o").value,document.getElementById("opt2o").value,document.getElementById("opt3o").value,document.getElementById("opt4o").value,document.getElementById("opt5o").value];
+
+            let erroro = document.getElementById("erroro");
+
+            let distintos2=true;
+
+	    let i=0;
+	    let j=0;
+
+	    for(i=0;((i<opto.length-1) && (distintos2==true));i++){
+		for(j=i+1;((j<opto.length) && (distintos2==true));j++){
+		    distintos2=(opto[i]!=opto[j]);
+		}
+	    }
+
+	    if (distintos2==false) {
+                erroro.style.display = "block";
+                return false;
+            } else {
+                erroro.style.display = "none";
+                return true;
+            }
+        }
+
+
+	function calcular_distintos(){
+            let opt = [document.getElementById("opt1").value,document.getElementById("opt2").value,document.getElementById("opt3").value,document.getElementById("opt4").value];
+
+            let error = document.getElementById("error");
+
+            let distintos=true;
+
+	    let i=0;
+	    let j=0;
+
+	    for(i=0;((i<opt.length-1) && (distintos==true));i++){
+		for(j=i+1;((j<opt.length) && (distintos==true));j++){
+		    distintos=(opt[i]!=opt[j]);
+		}
+	    }
+
+	    if (distintos==false) {
+                error.style.display = "block";
+                return false;
+            } else {
+                error.style.display = "none";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body id="cuerpo">
+    <form name="my-google-sheet" id="my-google-sheet"  method="POST" onsubmit="return validateForm()">
+	<div id="encabezado" style="display:flex;align-items:center;">
+	    <img src="LOGO_IES_ALCARIA.png" width="10%">
+	    <h2 style="flex-grow:1;display:inline-block;">PREFERENCIA DE MATERIAS OPTATIVAS PARA 4ºESO DIVERSIFICACIÓN</h2>
+	</div>
+        <br>
+	<fieldset>
+            <legend>INTRODUCE TU CORREO DE G.EDUCAAND.ES</legend>
+	    <br>
+            <label for="email">Correo electrónico de @g.educaand.es:</label>
+            <input type="email" id="email" name="Email" size="25" required><br><br>
+        </fieldset><br>
+
+	<br><a href="Información sobre optativas 4ºESO.pdf" target="_blank">Ver información sobre las asignaturas</a><br><br>
+
+        <br>
+        <fieldset>
+            <legend>OPTATIVAS</legend>
+	    <br><label id="mensaje" class="mensaje">A elegir 2, pero debes valorar todas las asignaturas de tal forma que le asignes un 1 a la asignatura que más te guste, un 2 a la segunda que más te guste, etc...</label>
+            <br>
+   	    <label for="opt1o">Digitalización:</label>
+            <select id="opt1o" name="Digitalización" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <label for="opt2o">Expresión Artística:</label>
+            <select id="opt2o" name="Expresión Artística" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <label for="opt3o">Formación y Orientación Personal y Profesional:</label>
+            <select id="opt3o" name="Formación y Orientación Personal y Profesional" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <label for="opt4o">Música:</label>
+            <select id="opt4o" name="Música" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <label for="opt5o">Tecnología:</label>
+            <select id="opt5o" name="Tecnología" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <span id="erroro" class="erroro">No puedes repetir números en estas asignaturas.</span>
+        </fieldset><br>
+
+        <fieldset>
+            <legend>OPTATIVAS PROPIAS DE LA COMUNIDAD AUTÓNOMA</legend>
+	    <br><label id="mensaje" class="mensaje">A elegir 1, pero debes valorar todas las asignaturas de tal forma que le asignes un 1 a la asignatura que más te guste, un 2 a la segunda que más te guste, etc...</label>
+            <br>
+   	    <label for="opt1">Aprendizaje Social y Emocional:</label>
+            <select id="opt1" name="Aprendizaje Social y Emocional" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <label for="opt2">Cultura científica:</label>
+            <select id="opt2" name="Cultura científica" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <label for="opt3">Taller de Radio:</label>
+            <select id="opt3" name="Taller de Radio" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <label for="opt4">Taller de Experiencias Científicas:</label>
+            <select id="opt4" name="Taller de Experiencias Científicas" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <span id="error" class="error">No puedes repetir números en estas asignaturas.</span>
+        </fieldset><br>
+
+        <br><label for="religion">SELECCIONA UNA DE ESTAS MATERIAS:</label>
+        <select id="religion" name="Religión/Alternativa" required>
+            <option value="Religión">Religión</option>
+            <option value="Atención_Educativa">Atención educativa</option>
+        </select><br><br><br>
+    	<button type="submit" class="btn btn-primary btn-sm">Enviar respuestas</button>
+    </form>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwXF1HHmn0n7MASzGVmbo1bA66y0W-zVGeijs8_hy4JUNcdZld3eWpWBmVfM0hoZTM/exec'
+        const form = document.forms['my-google-sheet']
+
+        form.addEventListener('submit', e => {
+	  if (validateForm()){
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>
+               
+            console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+
+	    document.getElementById("my-google-sheet").reset();
+	    document.getElementById("cuerpo").innerHTML = "";
+	    document.getElementById("cuerpo").innerText = "RESPUESTA ENVIADA, MUCHAS GRACIAS.";
+          }
+        }) 
+    </script>
+
+</body>
+</html>
