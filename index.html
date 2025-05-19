@@ -63,7 +63,7 @@
 
 
 	function calcular_distintos(){
-            let opt = [document.getElementById("opt1").value,document.getElementById("opt2").value,document.getElementById("opt3").value,document.getElementById("opt4").value];
+            let opt = [document.getElementById("opt1").value,document.getElementById("opt2").value,document.getElementById("opt3").value,document.getElementById("opt4").value,document.getElementById("opt5").value];
 
             let error = document.getElementById("error");
 
@@ -167,6 +167,7 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="5">5</option>
             </select><br>
 
             <label for="opt2">Cultura científica:</label>
@@ -175,7 +176,8 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-            </select><br>
+                 <option value="5">5</option>
+           </select><br>
 
             <label for="opt3">Taller de Radio:</label>
             <select id="opt3" name="Taller de Radio" required>
@@ -183,6 +185,7 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="5">5</option>
             </select><br>
 
             <label for="opt4">Taller de Experiencias Científicas:</label>
@@ -191,6 +194,16 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+
+            <label for="opt5">Taller de Cine:</label>
+            <select id="opt5" name="Taller de Cine" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select><br>
 
             <span id="error" class="error">No puedes repetir números en estas asignaturas.</span>
